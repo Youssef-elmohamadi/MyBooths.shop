@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #00D26A;
+  --color-primary-hover: #00b55b;
+  --font-sans: 'Inter', sans-serif;
+  --color-dark-bg: #111827;
+  --color-dark-surface: #000000;
+  --color-dark-border: #1f2937;
+}
+
+/* === Professional Container Definition === */
+@layer components {
+  .wrapper {
+    /* 1. التوسيط والعرض الكامل */
+    @apply w-full mx-auto;
+    
+    /* 2. التحكم في العرض الأقصى: نجعله أعرض قليلاً من المعتاد ليعطي فخامة */
+    @apply max-w-[1440px]; 
+
+    /* 3. هوامش داخلية (Padding) متجاوبة وذكية */
+    /* موبايل: مسافة صغيرة */
+    @apply px-4; 
+    
+    /* تابلت: مسافة متوسطة */
+    @apply md:px-8; 
+    
+    /* شاشات كبيرة: مسافة كبيرة تعطي "فراغ" احترافي */
+    @apply lg:px-16; 
+  }
+}

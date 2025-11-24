@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyBooths Header Clone</title>
+    <link rel="stylesheet" href="./dist/output.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-900 font-sans">
+
+    <header class="bg-black text-white border-b border-gray-800 sticky top-0 z-50">
+        <div class="wrapper mx-auto px-4 h-20 flex items-center justify-between">
+            
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-2 group">
+                <!-- استخدام bg-primary بدلاً من الكود -->
+                <div class="bg-primary text-black font-bold text-xl p-1.5 rounded-sm">MB</div>
+                <span class="font-bold text-xl tracking-tight">MyBooths.shop</span>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-300">
+                <a href="#" class="hover:text-white transition">Home</a>
+                <a href="#" class="hover:text-white transition">Build Your Booth</a>
+                <a href="#" class="hover:text-white transition">Shop</a>
+                <a href="#" class="hover:text-white transition">About</a>
+                <a href="#" class="hover:text-white transition">Blog</a>
+                <a href="contact.html" class="hover:text-white transition">Contact Us</a>
+            </nav>
+
+            <!-- Desktop Actions -->
+            <div class="hidden lg:flex items-center gap-6">
+                <button class="flex items-center gap-1 text-gray-300 hover:text-white text-sm">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <span>العربية</span>
+                </button>
+                
+                <a href="#" class="font-medium hover:text-gray-300">Login</a>
+                <!-- استخدام bg-primary و hover:bg-primary-hover -->
+                <a href="#" class="bg-primary text-black px-5 py-2 rounded font-bold hover:bg-primary-hover transition">
+                    Register
+                </a>
+            </div>
+
+            <!-- Mobile Toggle -->
+            <button id="open-sidebar" class="lg:hidden text-white focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Overlay -->
+    <div id="overlay" class="fixed inset-0 bg-black/50 z-40 hidden backdrop-blur-sm"></div>
+
+    <!-- Sidebar -->
+    <div id="sidebar" class="fixed inset-y-0 left-0 w-[85%] max-w-sm bg-black text-white z-50 transform -translate-x-full transition-transform duration-300 ease-in-out shadow-2xl border-r border-gray-800">
+        
+        <div class="flex items-center justify-between p-5 border-b border-gray-800">
+            <div class="bg-primary text-black font-bold text-lg p-1 rounded-sm">MB</div>
+            
+            <div class="flex items-center gap-4">
+                <button class="text-gray-300 hover:text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </button>
+                <button id="close-sidebar" class="text-white">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+        </div>
+
+        <div class="flex flex-col p-5 space-y-6 text-lg font-medium">
+            <!-- استخدام hover:text-primary -->
+            <a href="#" class="block hover:text-primary">Home</a>
+            <a href="#" class="block hover:text-primary">Build Your Booth</a>
+            <a href="#" class="block hover:text-primary">Shop</a>
+            <a href="#" class="block hover:text-primary">About</a>
+            <a href="#" class="block hover:text-primary">Blog</a>
+            <a href="#" class="block hover:text-primary">Contact Us</a>
+            <a href="#" class="block hover:text-primary">Login</a>
+        </div>
+
+        <div class="p-5 mt-auto">
+            <a href="#" class="block w-full bg-primary text-black text-center font-bold py-3 rounded hover:bg-primary-hover transition">
+                Register
+            </a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+<section class="relative min-h-screen flex items-center justify-center bg-gray-900 bg-cover bg-center bg-no-repeat text-white"
+     style="background-image: url('./images//photo-1519290685693-c99eee1a16d7.jpg');">
+
+    <div class="absolute inset-0 bg-black/80 z-0">
+
+    </div>
+
+
+    <div class="relative z-10 text-center px-4">
+        <h1 class="text-4xl md:text-6xl font-bold mb-6">Build Your Perfect<br><span class="text-primary">Exhibition Booth</span></h1>
+        <p class="text-gray-400 text-lg mb-8">Professional booth design and rental services for exhibitions worldwide</p>
+        <div class="flex justify-center gap-4">
+            <button class="bg-primary hover:bg-primary-hover text-black font-bold px-6 py-3 rounded transition">Start Building →</button>
+            <button class="bg-white text-black font-bold px-6 py-3 rounded hover:bg-gray-100 transition">Explore Shop</button>
+        </div>
+    </div>
+
+</section>
+
+<section class="bg-black py-10">
+    <div class="wrapper mx-auto px-4 relative group">
+        
+        <div class="overflow-hidden rounded-lg shadow-2xl relative h-[400px] md:h-[600px]">
+            <div id="slider-track" class="flex transition-transform duration-500 ease-in-out h-full">
+                
+                <div class="min-w-full h-full relative">
+                    <img src="https://images.unsplash.com/photo-1531058020387-3be344556be6?q=80&w=2670&auto=format&fit=crop" 
+                         alt="Booth 1" class="w-full h-full object-cover">
+                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-8">
+                        <h3 class="text-white text-3xl font-bold">Start With Digital Finishing</h3>
+                    </div>
+                </div>
+
+                <div class="min-w-full h-full relative">
+                    <img src="https://images.unsplash.com/photo-1531058020387-3be344556be6?q=80&w=2670&auto=format&fit=crop" 
+                         alt="Booth 2" class="w-full h-full object-cover">
+                </div>
+
+                <div class="min-w-full h-full relative">
+                    <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=2669&auto=format&fit=crop" 
+                         alt="Booth 3" class="w-full h-full object-cover">
+                </div>
+
+            </div>
+        </div>
+
+        <button id="prev-slide" class="absolute top-1/2 left-6 -translate-y-1/2 bg-black/50 hover:bg-primary text-white hover:text-black p-3 rounded-full transition-all duration-300 opacity-0 group-hover:opacity-100">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+        </button>
+        
+        <button id="next-slide" class="absolute top-1/2 right-6 -translate-y-1/2 bg-black/50 hover:bg-primary text-white hover:text-black p-3 rounded-full transition-all duration-300 opacity-0 group-hover:opacity-100">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        </button>
+
+        <div id="slider-dots" class="flex justify-center gap-2 mt-6">
+            </div>
+
+    </div>
+</section>
+
+<section class="bg-black py-20">
+    <div class="wrapper mx-auto px-4">
+        
+        <h2 class="text-4xl font-bold text-white text-center mb-16">How It Works</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+            <div class="group bg-[#111111] p-8 rounded-2xl border border-white/5 hover:border-primary transition-all duration-300 text-center cursor-pointer">
+                <div class="text-6xl font-bold text-primary/30 group-hover:text-primary transition-colors duration-300 mb-4">
+                    01
+                </div>
+                <h3 class="text-xl font-bold text-white mb-3">Choose Your Country</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    Select exhibition location for accurate pricing
+                </p>
+            </div>
+
+            <div class="group bg-[#111111] p-8 rounded-2xl border border-white/5 hover:border-primary transition-all duration-300 text-center cursor-pointer">
+                <div class="text-6xl font-bold text-primary/30 group-hover:text-primary transition-colors duration-300 mb-4">
+                    02
+                </div>
+                <h3 class="text-xl font-bold text-white mb-3">Design Your Booth</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    Customize size, mode, and features
+                </p>
+            </div>
+
+            <div class="group bg-[#111111] p-8 rounded-2xl border border-white/5 hover:border-primary transition-all duration-300 text-center cursor-pointer">
+                <div class="text-6xl font-bold text-primary/30 group-hover:text-primary transition-colors duration-300 mb-4">
+                    03
+                </div>
+                <h3 class="text-xl font-bold text-white mb-3">Add Services</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    LED screens, audio, printing, and more
+                </p>
+            </div>
+
+            <div class="group bg-[#111111] p-8 rounded-2xl border border-white/5 hover:border-primary transition-all duration-300 text-center cursor-pointer">
+                <div class="text-6xl font-bold text-primary/30 group-hover:text-primary transition-colors duration-300 mb-4">
+                    04
+                </div>
+                <h3 class="text-xl font-bold text-white mb-3">Review & Book</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    Secure payment and instant confirmation
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+<section class="bg-black py-20">
+    <div class="wrapper mx-auto px-4">
+        
+        <h2 class="text-4xl font-bold text-white text-center mb-16">Why Choose MyBooths.shop</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+            <div class="group bg-[#111111] p-8 rounded-2xl border border-white/5 hover:border-primary transition-all duration-300 text-center cursor-pointer">
+                <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-gray-800/50 flex items-center justify-center">
+                    <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-9 3-9s-1.343-9-3-9m0 18c-1.657 0-3-9-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-3">Global Coverage</h3>
+                <p class="text-gray-400 text-sm">Exhibitions in Egypt and internationally</p>
+            </div>
+
+            <div class="group bg-[#111111] p-8 rounded-2xl border border-white/5 hover:border-primary transition-all duration-300 text-center cursor-pointer">
+                <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-gray-800/50 flex items-center justify-center">
+                    <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-3">Custom Design</h3>
+                <p class="text-gray-400 text-sm">Tailored booths to match your brand</p>
+            </div>
+
+            <div class="group bg-[#111111] p-8 rounded-2xl border border-white/5 hover:border-primary transition-all duration-300 text-center cursor-pointer">
+                <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-gray-800/50 flex items-center justify-center">
+                    <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18.364 5.636a9 9 0 010 12.728m0 0l-2.829-2.829m2.829 2.829L21 21M15.536 8.464a5 5 0 010 7.072m0 0l-2.829-2.829m-4.243 2.829a4.978 4.978 0 01-1.414-2.83m-1.414 5.658a9 9 0 01-2.167-9.238"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-3">Full Service</h3>
+                <p class="text-gray-400 text-sm">From design to deployment and support</p>
+            </div>
+
+            <div class="group bg-[#111111] p-8 rounded-2xl border border-white/5 hover:border-primary transition-all duration-300 text-center cursor-pointer">
+                <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-gray-800/50 flex items-center justify-center">
+                    <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-3">Secure Payments</h3>
+                <p class="text-gray-400 text-sm">Stripe and PayPal integration</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+<section class="bg-black py-20 border-t border-gray-900">
+    <div class="wrapper mx-auto px-4">
+        
+        <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+            
+            <div class="w-full lg:w-1/2">
+                <div class="relative group overflow-hidden rounded-lg">
+                    <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-colors duration-300 z-10"></div>
+                    
+                    <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=2574&auto=format&fit=crop" 
+                         alt="Exhibition Booth" 
+                         class="w-full h-auto object-cover rounded-lg shadow-2xl transform group-hover:scale-105 transition-transform duration-700">
+                </div>
+            </div>
+
+            <div class="w-full lg:w-1/2 text-left">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+                    Ready to Build Your Booth?
+                </h2>
+                
+                <p class="text-gray-400 text-lg mb-8 leading-relaxed max-w-xl">
+                    Start designing your perfect exhibition booth today with our easy-to-use configurator.
+                </p>
+
+                <a href="#" class="inline-flex items-center gap-2 bg-primary text-black font-bold px-8 py-4 rounded hover:bg-primary-hover transition-colors duration-300 group">
+                    Get Started Now
+                    <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                    </svg>
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<footer class="bg-black text-white pt-20 pb-10 border-t border-gray-900">
+    <div class="wrapper mx-auto px-4">
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+            
+            <div>
+                <a href="#" class="flex items-center gap-2 mb-6">
+                    <div class="bg-primary text-black font-bold text-xl p-1.5 rounded-sm">MB</div>
+                    <span class="font-bold text-xl tracking-tight">MyBooths.shop</span>
+                </a>
+                <p class="text-gray-400 text-sm leading-relaxed max-w-xs">
+                    Your global partner for stunning, professional exhibition booths.
+                </p>
+            </div>
+
+            <div>
+                <h3 class="font-bold text-lg mb-6">Home</h3>
+                <ul class="space-y-4 text-gray-400 text-sm">
+                    <li><a href="#" class="hover:text-primary transition-colors">Home</a></li>
+                    <li><a href="#" class="hover:text-primary transition-colors">Build Your Booth</a></li>
+                    <li><a href="#" class="hover:text-primary transition-colors">Shop</a></li>
+                    <li><a href="#" class="hover:text-primary transition-colors">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="font-bold text-lg mb-6">About</h3>
+                <ul class="space-y-4 text-gray-400 text-sm">
+                    <li><a href="#" class="hover:text-primary transition-colors">About</a></li>
+                    <li><a href="#" class="hover:text-primary transition-colors">Blog</a></li>
+                    <li><a href="#" class="hover:text-primary transition-colors">FAQ</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="font-bold text-lg mb-6">Legal</h3>
+                <ul class="space-y-4 text-gray-400 text-sm">
+                    <li><a href="#" class="hover:text-primary transition-colors">Terms & Conditions</a></li>
+                    <li><a href="#" class="hover:text-primary transition-colors">Privacy Policy</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="border-t border-gray-800 my-8"></div>
+
+        <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
+            
+            <p>© 2025 MyBooths.shop — Powered by ISG Exhibitions.</p>
+
+            <div class="flex items-center gap-6">
+                <a href="#" class="hover:text-white transition-colors">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.791-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                </a>
+                <a href="#" class="hover:text-white transition-colors">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+                </a>
+                <a href="#" class="hover:text-white transition-colors">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                </a>
+                <a href="#" class="hover:text-white transition-colors">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+</footer>
+
+    <script src="./js/custom.js"></script>
+</body>
+</html>
