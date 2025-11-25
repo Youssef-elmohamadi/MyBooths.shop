@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Build Your Booth - MyBooths.shop</title>
+    <link rel="stylesheet" href="./dist/output.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <style>
+
+        /* Custom Range Slider Styling */
+        input[type=range] {
+            height: 4px;
+            border-radius: 5px;
+            background: #333;
+            outline: none;
+        }
+
+        /* === New Custom Checkbox Styling === */
+        .custom-checkbox {
+            appearance: none;
+            background-color: transparent;
+            border: 2px solid #4b5563; /* gray-600 */
+            border-radius: 4px;
+            width: 1.25rem;
+            height: 1.25rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            position: relative;
+        }
+        
+        .custom-checkbox:checked {
+            background-color: var(--color-primary);
+            border-color: var(--color-primary);
+            /* SVG Checkmark Icon */
+            background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='black' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");
+            background-size: 100% 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .custom-checkbox:hover {
+            border-color: var(--color-primary);
+        }
+    </style>
+</head>
+
+<body class="bg-black text-white min-h-screen flex flex-col">
+
+    <header class="bg-black text-white border-b border-gray-800 sticky top-0 z-50">
+        <div class="wrapper mx-auto px-4 h-20 flex items-center justify-between">
+
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-2 group">
+                <div class="bg-primary text-black font-bold text-xl p-1.5 rounded-sm">MB</div>
+                <span class="font-bold text-xl tracking-tight">MyBooths.shop</span>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-300">
+                <a href="/" class="hover:text-white transition">Home</a>
+                <a href="/build-booth.html" class="hover:text-white transition">Build Your Booth</a>
+                <a href="/shop.html" class="hover:text-white transition">Shop</a>
+                <a href="/about.html" class="hover:text-white transition">About</a>
+                <a href="/blog.html" class="hover:text-white transition">Blog</a>
+                <a href="/contact.html" class="hover:text-white transition">Contact Us</a>
+            </nav>
+
+            <!-- Desktop Actions -->
+            <div class="hidden lg:flex items-center gap-6">
+                <button class="flex items-center gap-1 text-gray-300 hover:text-white text-sm">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
+                        </path>
+                    </svg>
+                    <span>العربية</span>
+                </button>
+
+                <a href="#" class="font-medium hover:text-gray-300">Login</a>
+                <a href="#" class="bg-primary text-black px-5 py-2 rounded font-bold hover:bg-primary-hover transition">
+                    Register
+                </a>
+            </div>
+
+            <!-- Mobile Toggle -->
+            <button id="open-sidebar" class="lg:hidden text-white focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                    </path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Page Title -->
+    <div class="bg-black py-12 text-center border-b border-gray-900">
+        <h1 class="text-4xl font-bold mb-4 flex items-center justify-center gap-3">
+            Shop
+            <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+            </svg>
+        </h1>
+        <p class="text-gray-400">Discover everything you need to make your booth unforgettable.</p>
+    </div>
+
+    <!-- Main Shop Content -->
+    <div class="wrapper py-12">
+        <div class="flex flex-col lg:flex-row gap-10">
+
+            <!-- Sidebar Filters -->
+            <aside class="w-full lg:w-1/4 space-y-8">
+
+                <!-- Categories -->
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Categories</h3>
+                    <div class="space-y-3">
+                        <label class="flex items-center gap-3 text-gray-400 hover:text-white cursor-pointer">
+                            <input type="checkbox" class="custom-checkbox filter-cat" value="booths">
+                            <span>Booths</span>
+                        </label>
+                        <label class="flex items-center gap-3 text-gray-400 hover:text-white cursor-pointer">
+                            <input type="checkbox" class="custom-checkbox filter-cat" value="screens">
+                            <span>LED Screens</span>
+                        </label>
+                        <label class="flex items-center gap-3 text-gray-400 hover:text-white cursor-pointer">
+                            <input type="checkbox" class="custom-checkbox filter-cat" value="furniture">
+                            <span>Furniture</span>
+                        </label>
+                        <label class="flex items-center gap-3 text-gray-400 hover:text-white cursor-pointer">
+                            <input type="checkbox" class="custom-checkbox filter-cat" value="audio">
+                            <span>Audio/Video</span>
+                        </label>
+                        <label class="flex items-center gap-3 text-gray-400 hover:text-white cursor-pointer">
+                            <input type="checkbox" class="custom-checkbox filter-cat" value="printing">
+                            <span>Printing Services</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Price Range -->
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Price Range</h3>
+                    <input type="range" id="price-range" min="0" max="8000" value="8000"
+                        class="w-full accent-primary h-2 bg-gray-800 rounded-lg cursor-pointer">
+                    <div class="flex justify-between text-sm text-gray-400 mt-2">
+                        <span>$0</span>
+                        <span id="price-display" class="text-primary font-bold">$8000</span>
+                    </div>
+                </div>
+
+                <button id="clear-filters"
+                    class="w-full border border-gray-600 hover:border-white text-white py-2 rounded transition">
+                    Clear Filters
+                </button>
+            </aside>
+
+            <!-- Products Grid -->
+            <main class="w-full lg:w-3/4">
+                <div class="flex justify-between items-center mb-6">
+                    <span class="text-gray-400 text-sm"><span id="product-count">8</span> products found</span>
+                </div>
+
+                <div id="products-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                    <!-- Product 1: Booths -->
+                    <div class="product-item bg-[#111] border border-gray-800 rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-300 group"
+                        data-category="booths" data-price="900">
+                        <div class="h-48 overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1540575467063-178a5093df45?q=80&w=2670&auto=format&fit=crop"
+                                alt="3 x 3 Booth L Shape"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute top-2 right-2 bg-black/70 text-white text-xs px-2 py-1 rounded">
+                                booths
+                            </div>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="font-bold text-lg mb-2 text-white truncate">3 x 3 Booth L Shape</h3>
+                            <p class="text-[#00D26A] font-bold text-xl mb-4">$900.00</p>
+                            <button
+                                class="w-full bg-primary hover:bg-[#00b55b] text-black font-bold py-2.5 rounded transition-colors flex items-center justify-center gap-2">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z">
+                                    </path>
+                                </svg>
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product 2: Booths -->
+                    <div class="product-item bg-[#111] border border-gray-800 rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-300 group"
+                        data-category="booths" data-price="7200">
+                        <div class="h-48 overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1531058020387-3be344556be6?q=80&w=2670&auto=format&fit=crop"
+                                alt="6 x 12 ISLAND BOOTH"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute top-2 right-2 bg-black/70 text-white text-xs px-2 py-1 rounded">
+                                booths
+                            </div>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="font-bold text-lg mb-2 text-white truncate">6 x 12 ISLAND BOOTH</h3>
+                            <p class="text-[#00D26A] font-bold text-xl mb-4">$7200.00</p>
+                            <button
+                                class="w-full bg-primary hover:bg-[#00b55b] text-black font-bold py-2.5 rounded transition-colors flex items-center justify-center gap-2">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z">
+                                    </path>
+                                </svg>
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product 3: Furniture -->
+                    <div class="product-item bg-[#111] border border-gray-800 rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-300 group"
+                        data-category="furniture" data-price="120">
+                        <div class="h-48 overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=2158&auto=format&fit=crop"
+                                alt="Modern Beige Chair Set"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute top-2 right-2 bg-black/70 text-white text-xs px-2 py-1 rounded">
+                                furniture
+                            </div>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="font-bold text-lg mb-2 text-white truncate">Modern Beige Chair Set</h3>
+                            <p class="text-[#00D26A] font-bold text-xl mb-4">$120.00</p>
+                            <button
+                                class="w-full bg-primary hover:bg-[#00b55b] text-black font-bold py-2.5 rounded transition-colors flex items-center justify-center gap-2">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z">
+                                    </path>
+                                </svg>
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product 4: Screens -->
+                    <div class="product-item bg-[#111] border border-gray-800 rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-300 group"
+                        data-category="screens" data-price="2500">
+                        <div class="h-48 overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070&auto=format&fit=crop"
+                                alt="P3.9 Indoor LED Screen"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute top-2 right-2 bg-black/70 text-white text-xs px-2 py-1 rounded">
+                                screens
+                            </div>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="font-bold text-lg mb-2 text-white truncate">P3.9 Indoor LED Screen</h3>
+                            <p class="text-[#00D26A] font-bold text-xl mb-4">$2500.00</p>
+                            <button
+                                class="w-full bg-primary hover:bg-[#00b55b] text-black font-bold py-2.5 rounded transition-colors flex items-center justify-center gap-2">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z">
+                                    </path>
+                                </svg>
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product 5: Printing -->
+                    <div class="product-item bg-[#111] border border-gray-800 rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-300 group"
+                        data-category="printing" data-price="85">
+                        <div class="h-48 overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1562577309-4932fdd64cd1?q=80&w=2574&auto=format&fit=crop"
+                                alt="Roll-up Banner Stand"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute top-2 right-2 bg-black/70 text-white text-xs px-2 py-1 rounded">
+                                printing
+                            </div>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="font-bold text-lg mb-2 text-white truncate">Roll-up Banner Stand</h3>
+                            <p class="text-[#00D26A] font-bold text-xl mb-4">$85.00</p>
+                            <button
+                                class="w-full bg-primary hover:bg-[#00b55b] text-black font-bold py-2.5 rounded transition-colors flex items-center justify-center gap-2">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z">
+                                    </path>
+                                </svg>
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product 6: Audio -->
+                    <div class="product-item bg-[#111] border border-gray-800 rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-300 group"
+                        data-category="audio" data-price="450">
+                        <div class="h-48 overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1524678606372-987d11ae463f?q=80&w=2670&auto=format&fit=crop"
+                                alt="PA Sound System Kit"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute top-2 right-2 bg-black/70 text-white text-xs px-2 py-1 rounded">
+                                audio
+                            </div>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="font-bold text-lg mb-2 text-white truncate">PA Sound System Kit</h3>
+                            <p class="text-[#00D26A] font-bold text-xl mb-4">$450.00</p>
+                            <button
+                                class="w-full bg-primary hover:bg-[#00b55b] text-black font-bold py-2.5 rounded transition-colors flex items-center justify-center gap-2">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z">
+                                    </path>
+                                </svg>
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product 7: Furniture -->
+                    <div class="product-item bg-[#111] border border-gray-800 rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-300 group"
+                        data-category="furniture" data-price="300">
+                        <div class="h-48 overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1595428774223-ef52624120d2?q=80&w=2574&auto=format&fit=crop"
+                                alt="Glass Display Counter"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute top-2 right-2 bg-black/70 text-white text-xs px-2 py-1 rounded">
+                                furniture
+                            </div>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="font-bold text-lg mb-2 text-white truncate">Glass Display Counter</h3>
+                            <p class="text-[#00D26A] font-bold text-xl mb-4">$300.00</p>
+                            <button
+                                class="w-full bg-primary hover:bg-[#00b55b] text-black font-bold py-2.5 rounded transition-colors flex items-center justify-center gap-2">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z">
+                                    </path>
+                                </svg>
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product 8: Booths -->
+                    <div class="product-item bg-[#111] border border-gray-800 rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-300 group"
+                        data-category="booths" data-price="1500">
+                        <div class="h-48 overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=2670&auto=format&fit=crop"
+                                alt="Custom Backdrop 4x3"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute top-2 right-2 bg-black/70 text-white text-xs px-2 py-1 rounded">
+                                booths
+                            </div>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="font-bold text-lg mb-2 text-white truncate">Custom Backdrop 4x3</h3>
+                            <p class="text-[#00D26A] font-bold text-xl mb-4">$1500.00</p>
+                            <button
+                                class="w-full bg-primary hover:bg-[#00b55b] text-black font-bold py-2.5 rounded transition-colors flex items-center justify-center gap-2">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z">
+                                    </path>
+                                </svg>
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </main>
+
+        </div>
+    </div>
+
+    <footer class="bg-black text-white pt-20 pb-10 border-t border-gray-900">
+        <div class="wrapper mx-auto px-4">
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+
+                <div>
+                    <a href="#" class="flex items-center gap-2 mb-6">
+                        <div class="bg-primary text-black font-bold text-xl p-1.5 rounded-sm">MB</div>
+                        <span class="font-bold text-xl tracking-tight">MyBooths.shop</span>
+                    </a>
+                    <p class="text-gray-400 text-sm leading-relaxed max-w-xs">
+                        Your global partner for stunning, professional exhibition booths.
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-lg mb-6">Home</h3>
+                    <ul class="space-y-4 text-gray-400 text-sm">
+                        <li><a href="#" class="hover:text-primary transition-colors">Home</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Build Your Booth</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Shop</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-lg mb-6">About</h3>
+                    <ul class="space-y-4 text-gray-400 text-sm">
+                        <li><a href="#" class="hover:text-primary transition-colors">About</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Blog</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-lg mb-6">Legal</h3>
+                    <ul class="space-y-4 text-gray-400 text-sm">
+                        <li><a href="#" class="hover:text-primary transition-colors">Terms & Conditions</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="border-t border-gray-800 my-8"></div>
+
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
+
+                <p>© 2025 MyBooths.shop — Powered by ISG Exhibitions.</p>
+
+                <div class="flex items-center gap-6">
+                    <a href="#" class="hover:text-white transition-colors">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.791-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                        </svg>
+                    </a>
+                    <a href="#" class="hover:text-white transition-colors">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
+                        </svg>
+                    </a>
+                    <a href="#" class="hover:text-white transition-colors">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                        </svg>
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </footer>
+    <div id="toast-container" class="fixed bottom-5 right-5 z-[9999] space-y-3"></div>
+    <script src="js/custom.js"></script>
+</body>
+
+</html>
