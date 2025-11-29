@@ -1,5 +1,5 @@
 $(document).ready(function() {
-
+//side bar menu toggle
     const sidebar = $('#sidebar');
     const overlay = $('#overlay');
     const openBtn = $('#open-sidebar');
@@ -18,7 +18,9 @@ $(document).ready(function() {
     openBtn.click(openMenu);
     closeBtn.click(closeMenu);
     overlay.click(closeMenu); 
+// End of sidebar menu toggle
 
+//Image Slider Logic
     const $track = $('#slider-track');
     const $slides = $track.children();
     const slideCount = $slides.length;
@@ -65,10 +67,12 @@ $(document).ready(function() {
         updateSlider(currentIndex);
     }, 5000);
 
+            // Multi-step Booth Rental Form Logic
+
             let currentStep = 1;
             const totalSteps = 5;
 
-            // --- Toast Notification Function (Replaces alert()) ---
+            // Toast Notification Function (Replaces alert())
             function showToast(message, isError = true) {
                 const $toastContainer = $('#toast-container');
                 const colorClass = isError ? 'bg-red-600' : 'bg-primary';
@@ -100,7 +104,7 @@ $(document).ready(function() {
                 }, 5000);
             }
 
-            // --- Step 3 Logic: Select Booth Mode ---
+            //  Step 3 Logic: Select Booth Mode 
             window.selectMode = function(element, value) {
                 // Remove selected styles from all options
                 $('.mode-option').removeClass('selected border-primary bg-[#1a1a1a] shadow-lg shadow-primary/10').addClass('border-gray-700'); 
@@ -113,7 +117,7 @@ $(document).ready(function() {
 window.toggleAddon = function(element) {
     const $element = $(element);
     const $checkbox = $element.find('.checkbox');
-    const $hiddenInput = $element.find('.addon-value'); // ← هــام
+    const $hiddenInput = $element.find('.addon-value'); 
 
     if ($element.hasClass('selected')) {
         // Deselect

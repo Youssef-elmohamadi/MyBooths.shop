@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Build Your Booth - MyBooths.shop</title>
+    <link rel="stylesheet" href="./dist/output.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body class="bg-black text-white min-h-screen flex flex-col">
+
+    <header class="bg-black text-white border-b border-gray-800 sticky top-0 z-50">
+        <div class="wrapper mx-auto px-4 h-20 flex items-center justify-between">
+            
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-2 group">
+                <div class="bg-primary text-black font-bold text-xl p-1.5 rounded-sm">MB</div>
+                <span class="font-bold text-xl tracking-tight">MyBooths.shop</span>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-300">
+                <a href="/" class="hover:text-white transition">Home</a>
+                <a href="/build-booth.html" class="hover:text-white transition">Build Your Booth</a>
+                <a href="/shop.html" class="hover:text-white transition">Shop</a>
+                <a href="/about.html" class="hover:text-white transition">About</a>
+                <a href="/blogs.html" class="hover:text-white transition">Blog</a>
+                <a href="/contact.html" class="hover:text-white transition">Contact Us</a>
+            </nav>
+
+            <!-- Desktop Actions -->
+            <div class="hidden lg:flex items-center gap-6">
+                <button class="flex items-center gap-1 text-gray-300 hover:text-white text-sm">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <span>العربية</span>
+                </button>
+                
+                <a href="#" class="font-medium hover:text-gray-300">Login</a>
+                <a href="#" class="bg-primary text-black px-5 py-2 rounded font-bold hover:bg-primary-hover transition">
+                    Register
+                </a>
+            </div>
+
+            <!-- Mobile Toggle -->
+            <button id="open-sidebar" class="lg:hidden text-white focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </div>
+    </header>
+<main class="flex-grow py-20">
+        <div class="wrapper">
+            
+            <!-- Title & Intro -->
+            <div class="text-center mb-16">
+                <h1 class="text-4xl font-bold mb-4">Blog</h1>
+                <p class="text-gray-400 text-lg">Insights, tips, and trends from the exhibition industry</p>
+            </div>
+
+            <!-- Blog Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                
+                <!-- Article 1 -->
+                <article class="bg-[#111] border border-gray-800 rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-300 group hover:-translate-y-1">
+                    <div class="h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2664&auto=format&fit=crop" alt="Blog 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 text-xs text-gray-500 mb-3">
+                            <span><svg class="w-4 h-4 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg> January 15, 2025</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3 leading-snug group-hover:text-primary transition-colors">
+                            10 Tips for a Successful Exhibition Booth
+                        </h3>
+                        <p class="text-gray-400 text-sm mb-4 line-clamp-3">
+                            Learn the essential strategies to make your exhibition booth stand out and attract more visitors. From lighting to layout, we cover it all.
+                        </p>
+                        <a href="/singleBlog.html" class="text-primary font-medium text-sm hover:text-white transition-colors flex items-center gap-1">
+                            Read More <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Article 2 -->
+                <article class="bg-[#111] border border-gray-800 rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-300 group hover:-translate-y-1">
+                    <div class="h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1559136555-9303dff5a98c?q=80&w=2670&auto=format&fit=crop" alt="Blog 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 text-xs text-gray-500 mb-3">
+                            <span><svg class="w-4 h-4 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg> January 10, 2025</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3 leading-snug group-hover:text-primary transition-colors">
+                            The Future of Trade Show Marketing
+                        </h3>
+                        <p class="text-gray-400 text-sm mb-4 line-clamp-3">
+                            Explore emerging trends and technologies shaping the future of exhibition marketing, including AR, VR, and sustainable booth designs.
+                        </p>
+                        <a href="/singleBlog.html" class="text-primary font-medium text-sm hover:text-white transition-colors flex items-center gap-1">
+                            Read More <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Article 3 -->
+                <article class="bg-[#111] border border-gray-800 rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-300 group hover:-translate-y-1">
+                    <div class="h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=2670&auto=format&fit=crop" alt="Blog 3" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 text-xs text-gray-500 mb-3">
+                            <span><svg class="w-4 h-4 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg> January 5, 2025</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3 leading-snug group-hover:text-primary transition-colors">
+                            Choosing the Right Booth Size for Your Budget
+                        </h3>
+                        <p class="text-gray-400 text-sm mb-4 line-clamp-3">
+                            A comprehensive guide to selecting the perfect booth size that maximizes ROI without breaking the bank. What you need to know before booking space.
+                        </p>
+                        <a href="/singleBlog.html" class="text-primary font-medium text-sm hover:text-white transition-colors flex items-center gap-1">
+                            Read More <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Article 4 -->
+                <article class="bg-[#111] border border-gray-800 rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-300 group hover:-translate-y-1">
+                    <div class="h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1551818255-e6e10975bc17?q=80&w=2573&auto=format&fit=crop" alt="Blog 4" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 text-xs text-gray-500 mb-3">
+                            <span><svg class="w-4 h-4 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg> December 28, 2024</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3 leading-snug group-hover:text-primary transition-colors">
+                            Sustainable Exhibition Practices
+                        </h3>
+                        <p class="text-gray-400 text-sm mb-4 line-clamp-3">
+                            How to reduce your carbon footprint at trade shows. Eco-friendly materials, reusable designs, and waste reduction tips.
+                        </p>
+                        <a href="/singleBlog.html" class="text-primary font-medium text-sm hover:text-white transition-colors flex items-center gap-1">
+                            Read More <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Article 5 -->
+                <article class="bg-[#111] border border-gray-800 rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-300 group hover:-translate-y-1">
+                    <div class="h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1560179707-f14e90ef3623?q=80&w=2673&auto=format&fit=crop" alt="Blog 5" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 text-xs text-gray-500 mb-3">
+                            <span><svg class="w-4 h-4 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg> December 20, 2024</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3 leading-snug group-hover:text-primary transition-colors">
+                            Maximizing Lead Generation
+                        </h3>
+                        <p class="text-gray-400 text-sm mb-4 line-clamp-3">
+                            Turn booth visitors into loyal customers. Proven techniques for effective lead capture and follow-up strategies.
+                        </p>
+                        <a href="/singleBlog.html" class="text-primary font-medium text-sm hover:text-white transition-colors flex items-center gap-1">
+                            Read More <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Article 6 -->
+                <article class="bg-[#111] border border-gray-800 rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-300 group hover:-translate-y-1">
+                    <div class="h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2669&auto=format&fit=crop" alt="Blog 6" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 text-xs text-gray-500 mb-3">
+                            <span><svg class="w-4 h-4 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg> December 15, 2024</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3 leading-snug group-hover:text-primary transition-colors">
+                            Design Trends for 2025
+                        </h3>
+                        <p class="text-gray-400 text-sm mb-4 line-clamp-3">
+                            What's hot in exhibition design this year? Minimalist structures, interactive displays, and bold color palettes.
+                        </p>
+                        <a href="/singleBlog.html" class="text-primary font-medium text-sm hover:text-white transition-colors flex items-center gap-1">
+                            Read More <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </a>
+                    </div>
+                </article>
+
+            </div>
+
+            <!-- Pagination -->
+            <div class="flex justify-center gap-2">
+                <a href="#" class="px-4 py-2 rounded border border-gray-700 hover:border-primary hover:text-primary transition-colors">Previous</a>
+                <a href="#" class="px-4 py-2 rounded bg-primary text-black font-bold">1</a>
+                <a href="#" class="px-4 py-2 rounded border border-gray-700 hover:border-primary hover:text-primary transition-colors">2</a>
+                <a href="#" class="px-4 py-2 rounded border border-gray-700 hover:border-primary hover:text-primary transition-colors">3</a>
+                <a href="#" class="px-4 py-2 rounded border border-gray-700 hover:border-primary hover:text-primary transition-colors">Next</a>
+            </div>
+
+        </div>
+    </main>
+      <footer class="bg-black text-white pt-20 pb-10 border-t border-gray-900">
+        <div class="wrapper mx-auto px-4">
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                
+                <div>
+                    <a href="#" class="flex items-center gap-2 mb-6">
+                        <div class="bg-primary text-black font-bold text-xl p-1.5 rounded-sm">MB</div>
+                        <span class="font-bold text-xl tracking-tight">MyBooths.shop</span>
+                    </a>
+                    <p class="text-gray-400 text-sm leading-relaxed max-w-xs">
+                        Your global partner for stunning, professional exhibition booths.
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-lg mb-6">Home</h3>
+                    <ul class="space-y-4 text-gray-400 text-sm">
+                        <li><a href="#" class="hover:text-primary transition-colors">Home</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Build Your Booth</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Shop</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-lg mb-6">About</h3>
+                    <ul class="space-y-4 text-gray-400 text-sm">
+                        <li><a href="#" class="hover:text-primary transition-colors">About</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Blog</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-lg mb-6">Legal</h3>
+                    <ul class="space-y-4 text-gray-400 text-sm">
+                        <li><a href="#" class="hover:text-primary transition-colors">Terms & Conditions</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="border-t border-gray-800 my-8"></div>
+
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
+                
+                <p>© 2025 MyBooths.shop — Powered by ISG Exhibitions.</p>
+
+                <div class="flex items-center gap-6">
+                    <a href="#" class="hover:text-white transition-colors">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.791-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    </a>
+                    <a href="#" class="hover:text-white transition-colors">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+                    </a>
+                    <a href="#" class="hover:text-white transition-colors">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </footer>
+    <div id="toast-container" class="fixed bottom-5 right-5 z-[9999] space-y-3"></div>
+    <script src="js/custom.js"></script>
+</body>
+</html>
