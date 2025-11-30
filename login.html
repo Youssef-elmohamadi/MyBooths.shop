@@ -15,19 +15,18 @@
             
             <!-- Logo -->
             <a href="#" class="flex items-center gap-2 group">
-                <!-- استخدام bg-primary بدلاً من الكود -->
                 <div class="bg-primary text-white font-bold text-xl p-1.5 rounded-sm">MB</div>
                 <span class="font-bold text-xl tracking-tight">MyBooths.shop</span>
             </a>
 
             <!-- Desktop Nav -->
             <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-300">
-                <a href="/" class="hover:text-white transition">Home</a>
-                <a href="/build-booth.html" class="hover:text-white transition">Build Your Booth</a>
-                <a href="/shop.html" class="hover:text-white transition">Shop</a>
-                <a href="/about.html" class="hover:text-white transition">About</a>
-                <a href="/blogs.html" class="hover:text-white transition">Blog</a>
-                <a href="/contact.html" class="hover:text-white transition">Contact Us</a>
+                <a href="./" class="hover:text-white transition">Home</a>
+                <a href="./build-booth.html" class="hover:text-white transition">Build Your Booth</a>
+                <a href="./shop.html" class="hover:text-white transition">Shop</a>
+                <a href="./about.html" class="hover:text-white transition">About</a>
+                <a href="./blogs.html" class="hover:text-white transition">Blog</a>
+                <a href="./contact.html" class="hover:text-white transition">Contact Us</a>
             </nav>
 
             <!-- Desktop Actions -->
@@ -50,6 +49,43 @@
             </button>
         </div>
     </header>
+
+    <!-- Overlay -->
+    <div id="overlay" class="fixed inset-0 bg-black/50 z-40 hidden backdrop-blur-sm"></div>
+
+    <!-- Sidebar -->
+    <div id="sidebar" class="fixed inset-y-0 left-0 w-[85%] max-w-sm bg-black text-white z-50 transform -translate-x-full transition-transform duration-300 ease-in-out shadow-2xl border-r border-gray-800">
+        
+        <div class="flex items-center justify-between p-5 border-b border-gray-800">
+            <div class="bg-primary text-white font-bold text-lg p-1 rounded-sm">MB</div>
+            
+            <div class="flex items-center gap-4">
+                <button class="text-gray-300 hover:text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </button>
+                <button id="close-sidebar" class="text-white">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+        </div>
+
+        <div class="flex flex-col p-5 space-y-6 text-lg font-medium">
+            <!-- استخدام hover:text-primary -->
+            <a href="./" class="block hover:text-primary">Home</a>
+            <a href="./build-booth.html" class="block hover:text-primary">Build Your Booth</a>
+            <a href="./shop.html" class="block hover:text-primary">Shop</a>
+            <a href="./about.html" class="block hover:text-primary">About</a>
+            <a href="./blog.html" class="block hover:text-primary">Blog</a>
+            <a href="./contact.html" class="block hover:text-primary">Contact Us</a>
+            <a href="./login.html" class="block hover:text-primary">Login</a>
+        </div>
+
+        <div class="p-5 mt-auto">
+            <a href="./register.html" class="block w-full bg-primary text-white text-center font-bold py-3 rounded hover:bg-primary-hover transition">
+                Register
+            </a>
+        </div>
+    </div>
 
      <main class="flex-grow flex items-center justify-center py-20 px-4">
         

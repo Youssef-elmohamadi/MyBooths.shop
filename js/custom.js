@@ -1,25 +1,44 @@
 $(document).ready(function() {
-//side bar menu toggle
-    const sidebar = $('#sidebar');
-    const overlay = $('#overlay');
-    const openBtn = $('#open-sidebar');
-    const closeBtn = $('#close-sidebar');
-
-    function openMenu() {
-        overlay.removeClass('hidden'); 
-        sidebar.removeClass('-translate-x-full'); 
-    }
-
-    function closeMenu() {
-        sidebar.addClass('-translate-x-full'); 
-        overlay.addClass('hidden'); 
-    }
-
-    openBtn.click(openMenu);
-    closeBtn.click(closeMenu);
-    overlay.click(closeMenu); 
-// End of sidebar menu toggle
-
+    //side bar menu toggle
+        const sidebar = $('#sidebar');
+        const overlay = $('#overlay');
+        const openBtn = $('#open-sidebar');
+        const closeBtn = $('#close-sidebar');
+    
+        function openMenu() {
+            overlay.removeClass('hidden'); 
+            sidebar.removeClass('-translate-x-full'); 
+        }
+    
+        function closeMenu() {
+            sidebar.addClass('-translate-x-full'); 
+            overlay.addClass('hidden'); 
+        }
+    
+        openBtn.click(openMenu);
+        closeBtn.click(closeMenu);
+        overlay.click(closeMenu); 
+    // End of sidebar menu toggle
+    //side bar menu toggle
+        const filterSidebar = $('#filtering-sidebar');
+        const openFilterSidebarBtn = $('#open-filter-sidebar');
+        const closeFilterSidebarBtn = $('#close-filter-sidebar');
+    
+        function openMenu() {
+            overlay.removeClass('hidden'); 
+            filterSidebar.removeClass('-translate-x-full'); 
+        }
+    
+        function closeMenu() {
+            filterSidebar.addClass('-translate-x-full'); 
+            overlay.addClass('hidden'); 
+        }
+    
+        openFilterSidebarBtn.click(openMenu);
+        closeFilterSidebarBtn.click(closeMenu);
+        overlay.click(closeMenu); 
+    // End of sidebar menu toggle
+    
 //Image Slider Logic
     const $track = $('#slider-track');
     const $slides = $track.children();
@@ -304,6 +323,38 @@ window.toggleAddon = function(element) {
     
             // Initial setup
             updateStep();
+
+            // Product Filtering Logic
+            const $filterSidebar = $('#filter-sidebar');
+    const $body = $('body');
+
+    // فتح الفلاتر
+    $('#open-filters').on('click', function() {
+        $filterSidebar.removeClass('hidden').addClass('block');
+        $body.css('overflow', 'hidden');
+    });
+
+    // إغلاق الفلاتر
+    $('#close-filters').on('click', function() {
+        $filterSidebar.addClass('hidden').removeClass('block');
+        $body.css('overflow', 'auto');
+    });
+
+    // التعامل مع تغيير حجم الشاشة (Resize)
+    $(window).on('resize', function() {
+        // نستخدم window.innerWidth ليكون دقيقاً مع الـ Breakpoints الخاصة بـ CSS
+        if (window.innerWidth >= 1024) {
+            // في شاشات الديسك توب
+            $body.css('overflow', 'auto');
+            $filterSidebar.removeClass('hidden').addClass('block');
+        } else {
+            // في الموبايل
+            // التحقق إذا كان العنصر لا يحتوي على كلاس fixed (حسب منطق الكود الأصلي)
+            if (!$filterSidebar.hasClass('fixed')) {
+                $filterSidebar.addClass('hidden');
+            }
+        }
+    });
 
             const countSpan = $('#product-count');
             const priceRange = $('#price-range');
